@@ -56,7 +56,7 @@
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestPathProvider.cs" />
-    <Compile Include="EndToEndTests\When_running_Jiggler_exe_to_jiggle_all_methods_in_namespace.cs" />
+    <Compile Include="EndToEndTests\JigglerExeEndToEndTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
