@@ -48,7 +48,7 @@ namespace Jiggler.Tests
             private bool _AssertArguments(JigglerArguments jigglerArguments)
             {
                 return jigglerArguments.AssemblyPath == "assemblyPath"
-                    && jigglerArguments.Namespace == "namespace"
+                    && jigglerArguments.NamespaceToUpdate == "namespace"
                     && jigglerArguments.JiggleMethod == "jiggleMethod";
             }
 

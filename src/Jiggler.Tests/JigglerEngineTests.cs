@@ -9,18 +9,29 @@ namespace Jiggler.Tests
     {
         private JigglerEngine _jigglerEngine = new JigglerEngine();
         private Mock<IAssemblyUpdater> _assemblyUpdater = new Mock<IAssemblyUpdater>();
-        private string _assemblyPath = "assemblyPath";
+        private JigglerArguments _jigglerArguments;
 
         [SetUp]
         public void SetUp()
         {
+            _SetupJigglerArguments();
             _StubAssemblyUpdaterFactory();
+        }
+
+        private void _SetupJigglerArguments()
+        {
+            _jigglerArguments = new JigglerArguments
+                                    {
+                                        AssemblyPath = "assemblyPath",
+                                        NamespaceToUpdate = "namespace",
+                                        JiggleMethod = "jiggleMethod",
+                                    };
         }
 
         private void _StubAssemblyUpdaterFactory()
         {
             var assemblyUpdaterFactory = new Mock<IAssemblyUpdaterFactory>();
-            assemblyUpdaterFactory.Setup(x => x.Load(_assemblyPath)).Returns(_assemblyUpdater.Object);
+            assemblyUpdaterFactory.Setup(x => x.Load(_jigglerArguments.AssemblyPath)).Returns(_assemblyUpdater.Object);
             _jigglerEngine.AssemblyUpdaterFactory = assemblyUpdaterFactory.Object;
         }
 
@@ -30,14 +41,13 @@ namespace Jiggler.Tests
             [SetUp]
             public void When()
             {
-                var jigglerArguments = new JigglerArguments {AssemblyPath = _assemblyPath};
-                _jigglerEngine.Jiggle(jigglerArguments);
+                _jigglerEngine.Jiggle(_jigglerArguments);
             }
 
             [Test]
-            public void It_should_add_a_call_to_the_jiggle_method_to_every_method_in_the_assembly_in_that_namespace_root()
+            public void It_should_load_an_assembly_updater_use_it_to_apply_the_jiggle_to_all_methods_in_namespace_()
             {
-                _assemblyUpdater.Verify(x => x.UpdateOnDisk());
+                _assemblyUpdater.Verify(x => x.ApplyJiggleToAllMethodsInNamespace(_jigglerArguments.NamespaceToUpdate, _jigglerArguments.JiggleMethod));
             }
         }
     }

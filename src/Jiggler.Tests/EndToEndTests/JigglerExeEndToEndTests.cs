@@ -2,7 +2,6 @@
 using System.IO;
 using Jiggler.Tests.EndToEndTests.Helpers;
 using NUnit.Framework;
-
 // ReSharper disable InconsistentNaming
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local

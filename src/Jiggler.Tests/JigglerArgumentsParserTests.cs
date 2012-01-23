@@ -34,7 +34,7 @@ namespace Jiggler.Tests
             [Test]
             public void It_should_parse_the_namespace()
             {
-                Assert.That(_jigglerArguments.Namespace, Is.EqualTo("namespace"));
+                Assert.That(_jigglerArguments.NamespaceToUpdate, Is.EqualTo("namespace"));
             }
 
             [Test]
