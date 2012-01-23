@@ -1,9 +1,15 @@
-﻿namespace JigglerConsole
+﻿using Jiggler;
+
+namespace JigglerConsole
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static IJigglerEngine JigglerEngine = new JigglerEngine();
+        public static void Main(string[] args)
         {
+            var jigglerArgumentsParser = new JigglerArgumentsParser();
+            var jigglerArguments = jigglerArgumentsParser.Parse(args);
+            JigglerEngine.Jiggle(jigglerArguments);
         }
     }
 }

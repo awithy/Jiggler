@@ -31,7 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
@@ -57,10 +58,23 @@
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestPathProvider.cs" />
     <Compile Include="EndToEndTests\JigglerExeEndToEndTests.cs" />
+    <Compile Include="JigglerArgumentsParserTests.cs" />
+    <Compile Include="JigglerConsoleEntryPointTests.cs" />
+    <Compile Include="ProgramRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JigglerConsole\JigglerConsole.csproj">
+      <Project>{D62A7923-33A4-4834-BD63-31C910640E2A}</Project>
+      <Name>JigglerConsole</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jiggler\Jiggler.csproj">
+      <Project>{7B3564D5-F2DA-4112-AC9C-4010766BCAA6}</Project>
+      <Name>Jiggler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
