@@ -1,7 +1,6 @@
 ﻿using JigglerConsole;
 using Moq;
 using NUnit.Framework;
-
 // ReSharper disable InconsistentNaming
 
 namespace Jiggler.Tests
@@ -9,28 +8,35 @@ namespace Jiggler.Tests
     [TestFixture]
     public abstract class JigglerConsoleEntryPointTests
     {
+        private Mock<IJigglerEngine> _jigglerEngine;
+        
+        [SetUp]
+        public void SetUp()
+        {
+            _StubJigglerEngine();
+        }
+
+        private void _StubJigglerEngine()
+        {
+            _jigglerEngine = new Mock<IJigglerEngine>();
+            Program.JigglerEngine = _jigglerEngine.Object;
+        }
+
         [TestFixture]
         public class When_running_with_arguments : JigglerConsoleEntryPointTests
         {
-            private Mock<IJigglerEngine> _jigglerEngine;
+            private static int _result;
 
             [SetUp]
             public void When()
             {
-                _StubJigglerEngine();
                 _RunMainWithArgs();
             }
 
             private static void _RunMainWithArgs()
             {
                 var args = new[] {"assemblyPath", "namespace", "jiggleMethod"};
-                Program.Main(args);
-            }
-
-            private void _StubJigglerEngine()
-            {
-                _jigglerEngine = new Mock<IJigglerEngine>();
-                Program.JigglerEngine = _jigglerEngine.Object;
+                _result = Program.Main(args);
             }
 
             [Test]
@@ -44,6 +50,36 @@ namespace Jiggler.Tests
                 return jigglerArguments.AssemblyPath == "assemblyPath"
                     && jigglerArguments.Namespace == "namespace"
                     && jigglerArguments.JiggleMethod == "jiggleMethod";
+            }
+
+            [Test]
+            public void It_should_return_0_()
+            {
+                Assert.That(_result, Is.EqualTo(0));
+            }
+        }
+
+        [TestFixture]
+        public class When_exception_thrown_while_running : JigglerConsoleEntryPointTests
+        {
+            private int _result;
+
+            [SetUp]
+            public void When()
+            {
+                _result = Program.Main(null);
+            }
+
+            [Test]
+            public void It_should_not_rethrow()
+            {
+                Assert.True(true);
+            }
+
+            [Test]
+            public void It_should_return_negative_1()
+            {
+                Assert.That(_result, Is.EqualTo(-1));
             }
         }
     }

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CecilAdapter.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunnerArguments.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="EndToEndTests\JigglerExeEndToEndTests.cs" />
     <Compile Include="JigglerArgumentsParserTests.cs" />
     <Compile Include="JigglerConsoleEntryPointTests.cs" />
-    <Compile Include="ProgramRunnerTests.cs" />
+    <Compile Include="JigglerEngineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
