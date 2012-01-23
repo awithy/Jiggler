@@ -8,7 +8,7 @@
     public class JigglerEngine : IJigglerEngine
     {
         public IAssemblyUpdaterFactory AssemblyUpdaterFactory = new AssemblyUpdaterFactory();
-
+        
         public void Jiggle(JigglerArguments jigglerArguments)
         {
             var assemblyUpdater = AssemblyUpdaterFactory.Load(jigglerArguments.AssemblyPath);

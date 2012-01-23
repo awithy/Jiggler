@@ -8,12 +8,12 @@ namespace Jiggler.Tests
     [TestFixture]
     public abstract class AssemblyUpdaterTests
     {
-        private AssemblyUpdater _assemblyUpdater;
+        //private AssemblyUpdater _assemblyUpdater;
 
         [SetUp]
         public void SetUp()
         {
-            _assemblyUpdater = new AssemblyUpdater();
+            //_assemblyUpdater = new AssemblyUpdater("assemblyPath");
         }
 
         [TestFixture]
@@ -22,15 +22,15 @@ namespace Jiggler.Tests
             [SetUp]
             public void When()
             {
-                var namespaceToUpdate = "namespace";
-                var jiggleMethod = "jiggleMethod";
-                _assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(namespaceToUpdate, jiggleMethod);
+                //var namespaceToUpdate = "namespace";
+                //var jiggleMethod = "jiggleMethod";
+                //_assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(namespaceToUpdate, jiggleMethod);
             }
 
             [Test]
             public void It_should()
             {
-                
+                //TBC
             }
         }
     }

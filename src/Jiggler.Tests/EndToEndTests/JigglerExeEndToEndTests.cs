@@ -15,7 +15,7 @@ namespace Jiggler.Tests.EndToEndTests
         private TestPathProvider _testPathProvider;
         private TestAssemblyExeRunner _testAssemblyExeRunner;
         private string _testAssemblyNamespace = "NamespaceToJiggle";
-        private string _jiggleMethod = "";
+        private string _jiggleMethod = "TestAssembly.TestJiggle.Jiggle";
 
         [SetUp]
         public void SharedContext()

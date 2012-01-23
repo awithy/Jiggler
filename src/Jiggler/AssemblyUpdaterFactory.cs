@@ -9,7 +9,7 @@ namespace Jiggler
     {
         public IAssemblyUpdater Load(string assemblyPath)
         {
-            return new AssemblyUpdater();
+            return new AssemblyUpdater(assemblyPath);
         }
     }
 }

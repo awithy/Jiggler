@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Jiggler;
 
 namespace JigglerConsole
@@ -8,16 +9,18 @@ namespace JigglerConsole
         public static IJigglerEngine JigglerEngine = new JigglerEngine();
         public static int Main(string[] args)
         {
+            var exitCode = 0;
             try
             {
                 _Main(args);
-                return 0;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return -1;
+                File.AppendAllText("Error.txt", ex.ToString());
+                exitCode = -1;
             }
+            return exitCode;
         }
 
         private static void _Main(string[] args)
