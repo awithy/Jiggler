@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyUpdaterTests.cs" />
-    <Compile Include="CecilAdapter.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunnerArguments.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
