@@ -58,7 +58,8 @@
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestPathProvider.cs" />
-    <Compile Include="EndToEndTests\JigglerExeEndToEndTests.cs" />
+    <Compile Include="EndToEndTests\EndToEndTestBase.cs" />
+    <Compile Include="EndToEndTests\When_jiggling_all_methods_in_namespace.cs" />
     <Compile Include="JigglerArgumentsParserTests.cs" />
     <Compile Include="JigglerConsoleEntryPointTests.cs" />
     <Compile Include="JigglerEngineTests.cs" />
