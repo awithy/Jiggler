@@ -13,7 +13,8 @@ namespace Jiggler.Tests.EndToEndTests
         protected TestPathProvider _testPathProvider;
         protected TestAssemblyExeRunner _testAssemblyExeRunner;
         protected string _testAssemblyNamespace = "NamespaceToJiggle";
-        protected string _jiggleMethod = "TestAssembly.TestJiggle.Jiggle";
+        protected string _testJiggleAssemblyPath;
+        protected string _jiggleMethod;
 
         [SetUp]
         public void SharedContext()

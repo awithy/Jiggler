@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace Jiggler.Tests.EndToEndTests
 {
     [TestFixture]
-    public class When_jiggling_all_methods_in_a_namespace : EndToEndTestBase
+    public class When_jiggling_all_methods_in_a_namespace_referencing_another_assembly : EndToEndTestBase
     {
         private string _randomStringToPassThroughForTest = Guid.NewGuid().ToString("N");
         private string _outputTestFileContents;
@@ -17,8 +17,8 @@ namespace Jiggler.Tests.EndToEndTests
         [SetUp]
         public void Context()
         {
-            _testJiggleAssemblyPath = "TestAssembly.exe";
-            _jiggleMethod = "TestAssembly.TestJiggle.Jiggle";
+            _testJiggleAssemblyPath = "AnotherTestAssembly.dll";
+            _jiggleMethod = "AnotherTestAssembly.AnotherTestJiggle.Jiggle";
             _JiggleTestAssembly();
             _ProduceTestJiggleOutputUsingJiggledTestAssembly();
         }

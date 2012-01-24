@@ -4,11 +4,12 @@
     {
         public string AssemblyPath { get; set; }
         public string Namespace { get; set; }
+        public string JiggleAssemblyPath { get; set; }
         public string JiggleMethod { get; set; }
 
         public string ToArgumentsString()
         {
-            return AssemblyPath + " " + Namespace + " " + JiggleMethod;
+            return AssemblyPath + " " + Namespace + " " + JiggleAssemblyPath + " " + JiggleMethod;
         }
     }
 }

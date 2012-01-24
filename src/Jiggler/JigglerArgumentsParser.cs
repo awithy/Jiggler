@@ -8,7 +8,8 @@ namespace Jiggler
                        {
                            AssemblyPath = args[0],
                            NamespaceToUpdate = args[1],
-                           JiggleMethod = args[2],
+                           JiggleAssemblyPath = args[2],
+                           JiggleMethod = args[3],
                        };
         }
     }

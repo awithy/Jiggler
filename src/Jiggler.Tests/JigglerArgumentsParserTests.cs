@@ -21,7 +21,7 @@ namespace Jiggler.Tests
             [SetUp]
             public void When()
             {
-                var stringArguments = new[] {"assembly", "namespace", "jigglerMethod"};
+                var stringArguments = new[] {"assembly", "namespace", "jiggleAssembly", "jiggleMethod"};
                 _jigglerArguments = _jigglerArgumentsParser.Parse(stringArguments);
             }
 
@@ -38,9 +38,15 @@ namespace Jiggler.Tests
             }
 
             [Test]
+            public void It_should_parse_the_jiggler_assembly_path()
+            {
+                Assert.That(_jigglerArguments.JiggleAssemblyPath, Is.EqualTo("jiggleAssembly"));
+            }
+
+            [Test]
             public void It_should_parse_the_jiggler_method()
             {
-                Assert.That(_jigglerArguments.JiggleMethod, Is.EqualTo("jigglerMethod"));
+                Assert.That(_jigglerArguments.JiggleMethod, Is.EqualTo("jiggleMethod"));
             }
         }
     }

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyUpdaterTests.cs" />
+    <Compile Include="EndToEndTests\When_jiggling_all_methods_in_namespace_referencing_another_assembly.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunnerArguments.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
     <Compile Include="EndToEndTests\Helpers\TestAssemblyExeRunner.cs" />
