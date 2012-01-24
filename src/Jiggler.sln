@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jiggler.Tests", "Jiggler.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAssembly", "TestAssembly\TestAssembly.csproj", "{DC86DD30-B891-4FA1-94E4-E532A17E068D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherTestAssembly", "AnotherTestAssembly\AnotherTestAssembly.csproj", "{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestAssemblies", "TestAssemblies", "{B7BFE3C2-34B7-47C2-ADB8-BA53C74F58F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,8 +63,22 @@ Global
 		{DC86DD30-B891-4FA1-94E4-E532A17E068D}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DC86DD30-B891-4FA1-94E4-E532A17E068D}.Release|x86.ActiveCfg = Release|x86
 		{DC86DD30-B891-4FA1-94E4-E532A17E068D}.Release|x86.Build.0 = Release|x86
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E4D3BE88-F9BE-4AD4-B986-0F1D72861CC1} = {B7BFE3C2-34B7-47C2-ADB8-BA53C74F58F7}
+		{DC86DD30-B891-4FA1-94E4-E532A17E068D} = {B7BFE3C2-34B7-47C2-ADB8-BA53C74F58F7}
 	EndGlobalSection
 EndGlobal
