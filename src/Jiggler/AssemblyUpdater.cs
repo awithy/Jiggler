@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Jiggler.ILInterface;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 
@@ -8,11 +9,12 @@ namespace Jiggler
 {
     public interface IAssemblyUpdater
     {
-        void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethod);
+        void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethodName);
     }
 
     public class AssemblyUpdater : IAssemblyUpdater
     {
+        private readonly IAssemblyILInterface _assemblyIlInterface;
         private readonly string _assemblyPath;
         private AssemblyDefinition _assemblyDefinition;
 
@@ -22,13 +24,26 @@ namespace Jiggler
             _assemblyDefinition = AssemblyDefinition.ReadAssembly(_assemblyPath);
         }
 
-        public void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethod)
+        public AssemblyUpdater(IAssemblyILInterface assemblyILInterface)
+        {
+            _assemblyIlInterface = assemblyILInterface;
+        }
+
+        public void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethodName)
         {
             Console.WriteLine("Applying jiggle");
-            var typeMethodsToUpdate = _MethodsToUpdate(namespaceToUpdate);
-            foreach (var typeMethodToUpdate in typeMethodsToUpdate)
-                _InsertJiggleInstructions(typeMethodToUpdate, jiggleMethod);
-            _SaveToDisk();
+
+            var jiggleMethod = _assemblyIlInterface.FindMethod(jiggleMethodName);
+            var methodsToUpdate = _assemblyIlInterface.FindAllNonCtorMethodsWithPrefix(namespaceToUpdate);
+            foreach(var methodToUpdate in methodsToUpdate)
+                methodToUpdate.InsertCallAtStart(jiggleMethod);
+
+            _assemblyIlInterface.SaveToDisk();
+
+            //var typeMethodsToUpdate = _MethodsToUpdate(namespaceToUpdate);
+            //foreach (var typeMethodToUpdate in typeMethodsToUpdate)
+            //_InsertJiggleInstructions(typeMethodToUpdate, jiggleMethod);
+            //_SaveToDisk();
         }
 
         private IEnumerable<MethodDefinition> _MethodsToUpdate(string namespaceToUpdate)
