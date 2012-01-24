@@ -12,9 +12,9 @@ namespace Jiggler.Tests
     public abstract class AssemblyUpdaterTests
     {
         private AssemblyUpdater _assemblyUpdater;
-        private Mock<IAssemblyILInterface> _assemblyILInterface = new Mock<IAssemblyILInterface>();
-        private Mock<IMethodILInterface> _methodToUpdate;
-        private Mock<IMethodILInterface> _jiggleMethodToFind;
+        private Mock<IILAssembly> _assemblyILInterface = new Mock<IILAssembly>();
+        private Mock<IILMethod> _methodToUpdate;
+        private Mock<IILMethod> _jiggleMethodToFind;
         private string _jiggleMethodNameToFind;
         private string _namespaceToUpdate;
 
@@ -28,15 +28,15 @@ namespace Jiggler.Tests
 
         private void _SetupFindMethodByName()
         {
-            _jiggleMethodToFind = new Mock<IMethodILInterface>();
+            _jiggleMethodToFind = new Mock<IILMethod>();
             _jiggleMethodNameToFind = "jiggleMethodNameToFind";
             _assemblyILInterface.Setup(x => x.FindMethod(_jiggleMethodNameToFind)).Returns(_jiggleMethodToFind.Object);
         }
 
         private void _SetupGetAllNonCtorMethods()
         {
-            _methodToUpdate = new Mock<IMethodILInterface>();
-            var methodsCollection = new List<IMethodILInterface>();
+            _methodToUpdate = new Mock<IILMethod>();
+            var methodsCollection = new List<IILMethod>();
             methodsCollection.Add(_methodToUpdate.Object);
             _namespaceToUpdate = "namespacePrefix";
             _assemblyILInterface.Setup(x => x.FindAllNonCtorMethodsWithPrefix(_namespaceToUpdate)).Returns(methodsCollection);

@@ -1,3 +1,5 @@
+using Jiggler.ILInterface;
+
 namespace Jiggler
 {
     public interface IAssemblyUpdaterFactory
@@ -9,7 +11,7 @@ namespace Jiggler
     {
         public IAssemblyUpdater Load(string assemblyPath)
         {
-            return new AssemblyUpdater(assemblyPath);
+            return new AssemblyUpdater(new CecilAssembly(assemblyPath));
         }
     }
 }

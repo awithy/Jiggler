@@ -54,11 +54,11 @@
   <ItemGroup>
     <Compile Include="AssemblyUpdater.cs" />
     <Compile Include="AssemblyUpdaterFactory.cs" />
-    <Compile Include="ILInterface\CecilIAssemblyLInterface.cs" />
-    <Compile Include="ILInterface\CecilMethodILInterface.cs" />
-    <Compile Include="ILInterface\IAssemblyILInterface.cs" />
-    <Compile Include="ILInterface\AssemblyILInterfaceFactory.cs" />
-    <Compile Include="ILInterface\IMethodILInterface.cs" />
+    <Compile Include="ILInterface\CecilAssembly.cs" />
+    <Compile Include="ILInterface\CecilMethod.cs" />
+    <Compile Include="ILInterface\IILAssembly.cs" />
+    <Compile Include="ILInterface\CecilAssemblyIlInterfaceFactory.cs" />
+    <Compile Include="ILInterface\IILMethod.cs" />
     <Compile Include="JigglerArguments.cs" />
     <Compile Include="JigglerArgumentsParser.cs" />
     <Compile Include="JigglerEngine.cs" />
