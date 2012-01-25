@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyUpdaterTests.cs" />
+    <Compile Include="UnitTests\AssemblyUpdaterTests.cs" />
     <Compile Include="EndToEndTests\When_jiggling_all_methods_in_namespace\and_using_jiggle_method_in_another_assembly.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunnerArguments.cs" />
     <Compile Include="EndToEndTests\Helpers\JiggleExeRunner.cs" />
@@ -61,9 +61,9 @@
     <Compile Include="EndToEndTests\Helpers\TestPathProvider.cs" />
     <Compile Include="EndToEndTests\EndToEndTestBase.cs" />
     <Compile Include="EndToEndTests\When_jiggling_all_methods_in_namespace\and_using_jiggle_method_in_same_assembly.cs" />
-    <Compile Include="JigglerArgumentsParserTests.cs" />
-    <Compile Include="JigglerConsoleEntryPointTests.cs" />
-    <Compile Include="JigglerEngineTests.cs" />
+    <Compile Include="UnitTests\JigglerArgumentsParserTests.cs" />
+    <Compile Include="UnitTests\JigglerConsoleEntryPointTests.cs" />
+    <Compile Include="UnitTests\JigglerEngineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

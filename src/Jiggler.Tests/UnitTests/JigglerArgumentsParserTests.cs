@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Jiggler.Tests
+namespace Jiggler.Tests.UnitTests
 {
     [TestFixture]
     public abstract class JigglerArgumentsParserTests

@@ -1,9 +1,10 @@
 ﻿using JigglerConsole;
 using Moq;
 using NUnit.Framework;
+
 // ReSharper disable InconsistentNaming
 
-namespace Jiggler.Tests
+namespace Jiggler.Tests.UnitTests
 {
     [TestFixture]
     public abstract class JigglerConsoleEntryPointTests

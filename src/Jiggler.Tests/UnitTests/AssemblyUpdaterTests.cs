@@ -2,11 +2,12 @@
 using Jiggler.ILInterface;
 using Moq;
 using NUnit.Framework;
+
 // ReSharper disable InconsistentNaming
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 
-namespace Jiggler.Tests
+namespace Jiggler.Tests.UnitTests
 {
     [TestFixture]
     public abstract class AssemblyUpdaterTests
