@@ -1,5 +1,0 @@
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at Jiggler.AssemblyUpdater.ApplyJiggleToAllMethodsInNamespace(String namespaceToUpdate, String jiggleMethodName) in C:\Projects\Jiggler\src\Jiggler\AssemblyUpdater.cs:line 36
-   at Jiggler.JigglerEngine.Jiggle(JigglerArguments jigglerArguments) in C:\Projects\Jiggler\src\Jiggler\JigglerEngine.cs:line 15
-   at JigglerConsole.Program._Main(String[] args) in C:\Projects\Jiggler\src\JigglerConsole\Program.cs:line 31
-   at JigglerConsole.Program.Main(String[] args) in C:\Projects\Jiggler\src\JigglerConsole\Program.cs:line 15

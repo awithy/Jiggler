@@ -6,6 +6,7 @@
         public string Namespace { get; set; }
         public string JiggleAssemblyPath { get; set; }
         public string JiggleMethod { get; set; }
+        public string WorkingDirectory { get; set; }
 
         public string ToArgumentsString()
         {

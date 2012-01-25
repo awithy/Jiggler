@@ -8,6 +8,7 @@ namespace Jiggler.Tests.EndToEndTests.Helpers
         {
             var jiggleExePath = new TestPathProvider().GetJiggleExePath();
             var startInfo = new ProcessStartInfo(jiggleExePath, arguments.ToArgumentsString());
+            startInfo.WorkingDirectory = arguments.WorkingDirectory;
             var process = new Process();
             process.StartInfo = startInfo;
             process.Start();

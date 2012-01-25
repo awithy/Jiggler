@@ -28,7 +28,7 @@ namespace Jiggler.Tests
             [Test]
             public void It_should_parse_the_assembly_path()
             {
-                Assert.That(_jigglerArguments.AssemblyPath, Is.EqualTo("assembly"));
+                Assert.That(_jigglerArguments.AssemblyToUpdatePath, Is.EqualTo("assembly"));
             }
 
             [Test]

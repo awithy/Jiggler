@@ -35,7 +35,7 @@ namespace Jiggler.Tests
 
             private static void _RunMainWithArgs()
             {
-                var args = new[] {"assemblyPath", "namespace", "jiggleMethod"};
+                var args = new[] {"assemblyPath", "namespace", "jiggleAssemblyPath", "jiggleMethod"};
                 _result = Program.Main(args);
             }
 
@@ -47,7 +47,7 @@ namespace Jiggler.Tests
 
             private bool _AssertArguments(JigglerArguments jigglerArguments)
             {
-                return jigglerArguments.AssemblyPath == "assemblyPath"
+                return jigglerArguments.AssemblyToUpdatePath == "assemblyPath"
                     && jigglerArguments.NamespaceToUpdate == "namespace"
                     && jigglerArguments.JiggleMethod == "jiggleMethod";
             }

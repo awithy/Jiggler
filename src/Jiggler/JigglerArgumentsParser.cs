@@ -6,7 +6,7 @@ namespace Jiggler
         {
             return new JigglerArguments
                        {
-                           AssemblyPath = args[0],
+                           AssemblyToUpdatePath = args[0],
                            NamespaceToUpdate = args[1],
                            JiggleAssemblyPath = args[2],
                            JiggleMethod = args[3],

@@ -1,3 +1,4 @@
+using System;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 
@@ -15,9 +16,11 @@ namespace Jiggler.ILInterface
         public void InsertCallAtStart(IILMethod method)
         {
             var cecilMethod = method as CecilMethod;
+            var cecilMethodDefinition = cecilMethod._methodDefinition;
             var existingInstructions = _methodDefinition.Body.Instructions.ToArray();
             _methodDefinition.Body.Instructions.Clear();
-            _methodDefinition.Body.Instructions.Add(Instruction.Create(OpCodes.Call, cecilMethod._methodDefinition));
+            var importedJiggleMethod = _methodDefinition.Module.Import(cecilMethodDefinition);
+            _methodDefinition.Body.Instructions.Add(Instruction.Create(OpCodes.Call, importedJiggleMethod));
             foreach(var existingInstruction in existingInstructions)
                 _methodDefinition.Body.Instructions.Add(existingInstruction);
         }

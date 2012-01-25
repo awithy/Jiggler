@@ -27,6 +27,7 @@ namespace AnotherTestAssembly
         {
             var testAssemblyBuildPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var outputFilePath = Path.Combine(testAssemblyBuildPath, "TestOutput.txt");
+            Console.WriteLine("Writing TestOutput.txt to " + outputFilePath);
             return outputFilePath;
         }
     }

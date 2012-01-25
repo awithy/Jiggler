@@ -7,7 +7,7 @@ namespace Jiggler.ILInterface
     public class CecilAssembly : IILAssembly
     {
         private readonly AssemblyDefinition _assemblyDefinition;
-        private string _assemblyPath;
+        private readonly string _assemblyPath;
 
         public CecilAssembly(string assemblyPath)
         {

@@ -5,9 +5,8 @@ namespace Jiggler.Tests.EndToEndTests.Helpers
 {
     public class TestAssemblyExeRunner
     {
-        public void Run(string stringToPassThrough)
+        public void Run(string testAssemblyExePath, string stringToPassThrough)
         {
-            var testAssemblyExePath = new TestPathProvider().GetTestAssemblyBuildPath();
             if(!File.Exists(testAssemblyExePath))
                 throw new FileNotFoundException("TestAssembly.exe not found");
             var startInfo = new ProcessStartInfo(testAssemblyExePath, stringToPassThrough);

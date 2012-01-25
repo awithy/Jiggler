@@ -59,6 +59,7 @@
     <Compile Include="ILInterface\IILAssembly.cs" />
     <Compile Include="ILInterface\CecilAssemblyIlInterfaceFactory.cs" />
     <Compile Include="ILInterface\IILMethod.cs" />
+    <Compile Include="JiggleMethodFactory.cs" />
     <Compile Include="JigglerArguments.cs" />
     <Compile Include="JigglerArgumentsParser.cs" />
     <Compile Include="JigglerEngine.cs" />

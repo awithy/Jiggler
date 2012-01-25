@@ -13,9 +13,8 @@ namespace Jiggler.Tests
     {
         private AssemblyUpdater _assemblyUpdater;
         private Mock<IILAssembly> _assemblyILInterface = new Mock<IILAssembly>();
+        private Mock<IILMethod> _jiggleMethod = new Mock<IILMethod>();
         private Mock<IILMethod> _methodToUpdate;
-        private Mock<IILMethod> _jiggleMethodToFind;
-        private string _jiggleMethodNameToFind;
         private string _namespaceToUpdate;
 
         [SetUp]
@@ -23,14 +22,6 @@ namespace Jiggler.Tests
         {
             _assemblyUpdater = new AssemblyUpdater(_assemblyILInterface.Object);
             _SetupGetAllNonCtorMethods();
-            _SetupFindMethodByName();
-        }
-
-        private void _SetupFindMethodByName()
-        {
-            _jiggleMethodToFind = new Mock<IILMethod>();
-            _jiggleMethodNameToFind = "jiggleMethodNameToFind";
-            _assemblyILInterface.Setup(x => x.FindMethod(_jiggleMethodNameToFind)).Returns(_jiggleMethodToFind.Object);
         }
 
         private void _SetupGetAllNonCtorMethods()
@@ -49,13 +40,13 @@ namespace Jiggler.Tests
             [SetUp]
             public void When()
             {
-                _assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(_namespaceToUpdate, _jiggleMethodNameToFind);
+                _assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(_namespaceToUpdate, _jiggleMethod.Object);
             }
 
             [Test]
             public void It_should_insert_call_to_jiggle_method_at_start_of_each_interface_()
             {
-               _methodToUpdate.Verify(x => x.InsertCallAtStart(_jiggleMethodToFind.Object)); 
+               _methodToUpdate.Verify(x => x.InsertCallAtStart(_jiggleMethod.Object)); 
             }
 
             [Test]

@@ -4,12 +4,12 @@ namespace Jiggler
 {
     public interface IAssemblyUpdaterFactory
     {
-        IAssemblyUpdater Load(string assemblyPath);
+        IAssemblyUpdater Create(string assemblyPath);
     }
 
     public class AssemblyUpdaterFactory : IAssemblyUpdaterFactory
     {
-        public IAssemblyUpdater Load(string assemblyPath)
+        public IAssemblyUpdater Create(string assemblyPath)
         {
             return new AssemblyUpdater(new CecilAssembly(assemblyPath));
         }

@@ -5,9 +5,19 @@ namespace Jiggler.Tests.EndToEndTests.Helpers
 {
     public class TestPathProvider
     {
-        public string GetTestAssemblyBuildPath()
+        public string GenerateTmpTestAssemblyPath()
+        {
+            return Path.Combine(_GetSrcPath(), @"TestAssembly\bin\debug\TestAssembly_" + Guid.NewGuid().ToString("N").Substring(0, 5) + ".exe");
+        }
+
+        private string _GetTestAssemblyBuildPath()
         {
             return Path.Combine(_GetSrcPath(), @"TestAssembly\bin\debug\TestAssembly.exe");
+        }
+
+        public void CopyTestAssemblyTo(string newPath)
+        {
+            File.Copy(_GetTestAssemblyBuildPath(), newPath);
         }
 
         public string GetTestAssemblyJiggleTestFile()
@@ -22,7 +32,14 @@ namespace Jiggler.Tests.EndToEndTests.Helpers
 
         private string _GetSrcPath()
         {
-            return Path.Combine(Environment.CurrentDirectory, @"..\..\..\");
+            var srcPath = Path.Combine(Environment.CurrentDirectory, @"..\..\..\");
+            var directoryInfo = new DirectoryInfo(srcPath);
+            return directoryInfo.FullName;
+        }
+
+        public string GetErrorFilePath()
+        {
+            return Path.Combine(_GetSrcPath(), @"TestAssembly\bin\debug\Error.txt");
         }
     }
 }

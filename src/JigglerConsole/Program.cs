@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using Jiggler;
+using Jiggler.ILInterface;
 
 namespace JigglerConsole
 {
     public class Program
     {
-        public static IJigglerEngine JigglerEngine = new JigglerEngine();
+        public static IJigglerEngine JigglerEngine = new JigglerEngine(new AssemblyUpdaterFactory(),
+                                                                       new JiggleMethodFactory(
+                                                                           new CecilILAssemblyFactory()));
         public static int Main(string[] args)
         {
+            //Debugger.Break();
             var exitCode = 0;
             try
             {
@@ -20,6 +25,7 @@ namespace JigglerConsole
                 File.AppendAllText("Error.txt", ex.ToString());
                 exitCode = -1;
             }
+            //Console.ReadKey();
             return exitCode;
         }
 

@@ -7,12 +7,20 @@
 
     public class JigglerEngine : IJigglerEngine
     {
-        public IAssemblyUpdaterFactory AssemblyUpdaterFactory = new AssemblyUpdaterFactory();
-        
+        private readonly IAssemblyUpdaterFactory _assemblyUpdaterFactory;
+        private readonly IJiggleMethodFactory _jiggleMethodFactory;
+
+        public JigglerEngine(IAssemblyUpdaterFactory assemblyUpdaterFactory, IJiggleMethodFactory jiggleMethodFactory)
+        {
+            _assemblyUpdaterFactory = assemblyUpdaterFactory;
+            _jiggleMethodFactory = jiggleMethodFactory;
+        }
+
         public void Jiggle(JigglerArguments jigglerArguments)
         {
-            var assemblyUpdater = AssemblyUpdaterFactory.Load(jigglerArguments.AssemblyPath);
-            assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(jigglerArguments.NamespaceToUpdate, jigglerArguments.JiggleMethod);
+            var jiggleMethod = _jiggleMethodFactory.Create(jigglerArguments.JiggleAssemblyPath, jigglerArguments.JiggleMethod);
+            var assemblyUpdater = _assemblyUpdaterFactory.Create(jigglerArguments.AssemblyToUpdatePath);
+            assemblyUpdater.ApplyJiggleToAllMethodsInNamespace(jigglerArguments.NamespaceToUpdate, jiggleMethod);
         }
     }
 }

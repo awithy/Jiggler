@@ -5,7 +5,7 @@ namespace Jiggler
 {
     public interface IAssemblyUpdater
     {
-        void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethodName);
+        void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, IILMethod jiggleMethod);
     }
 
     public class AssemblyUpdater : IAssemblyUpdater
@@ -17,10 +17,9 @@ namespace Jiggler
             _assemblyIlInterface = assemblyILInterface;
         }
 
-        public void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, string jiggleMethodName)
+        public void ApplyJiggleToAllMethodsInNamespace(string namespaceToUpdate, IILMethod jiggleMethod)
         {
             Console.WriteLine("Applying jiggle");
-            var jiggleMethod = _assemblyIlInterface.FindMethod(jiggleMethodName);
             var methodsToUpdate = _assemblyIlInterface.FindAllNonCtorMethodsWithPrefix(namespaceToUpdate);
             foreach(var methodToUpdate in methodsToUpdate)
                 methodToUpdate.InsertCallAtStart(jiggleMethod);

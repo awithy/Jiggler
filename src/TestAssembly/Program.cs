@@ -10,12 +10,14 @@ namespace NamespaceToJiggle
         {
             var arguments = new TestAssemblyArguments(args);
             TestAssembly.TestJiggle.TestStringToPassThrough = arguments.GetStringToPassThrough();
+            AnotherTestAssembly.AnotherTestJiggle.TestStringToPassThrough = arguments.GetStringToPassThrough();
             _TestMethod();
         }
 
         private static void _TestMethod()
         {
             //TestAssembly.TestJiggle.Jiggle();  -- This is the line we are trying to add in the test.
+            //AnotherTestAssembly.AnotherTestJiggle.Jiggle();
             Console.WriteLine("Method to jiggle");
         }
     }

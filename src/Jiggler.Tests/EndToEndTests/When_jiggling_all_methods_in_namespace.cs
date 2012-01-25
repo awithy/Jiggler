@@ -17,7 +17,7 @@ namespace Jiggler.Tests.EndToEndTests
         [SetUp]
         public void Context()
         {
-            _testJiggleAssemblyPath = "TestAssembly.exe";
+            _testJiggleAssemblyPath = _tmpTestAssemblyPath;
             _jiggleMethod = "TestAssembly.TestJiggle.Jiggle";
             _JiggleTestAssembly();
             _ProduceTestJiggleOutputUsingJiggledTestAssembly();
@@ -27,7 +27,7 @@ namespace Jiggler.Tests.EndToEndTests
         {
             var jiggleArguments = new JiggleExeRunnerArguments
                                       {
-                                          AssemblyPath = _testPathProvider.GetTestAssemblyBuildPath(),
+                                          AssemblyPath = _tmpTestAssemblyPath,
                                           Namespace = _testAssemblyNamespace,
                                           JiggleAssemblyPath = _testJiggleAssemblyPath,
                                           JiggleMethod = _jiggleMethod,
@@ -43,7 +43,7 @@ namespace Jiggler.Tests.EndToEndTests
 
         private void _RunTestAssembly()
         {
-            _testAssemblyExeRunner.Run(_randomStringToPassThroughForTest);
+            _testAssemblyExeRunner.Run(_tmpTestAssemblyPath, _randomStringToPassThroughForTest);
         }
 
         private void _ReadJiggleTestOutput()

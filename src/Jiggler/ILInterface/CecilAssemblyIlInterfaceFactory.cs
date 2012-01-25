@@ -1,11 +1,11 @@
 namespace Jiggler.ILInterface
 {
-    public interface IAssemblyILInterfaceFactory
+    public interface IILAssemblyFactory
     {
         IILAssembly Create(string assemblyPath);
     }
 
-    public class CecilAssemblyIlInterfaceFactory : IAssemblyILInterfaceFactory
+    public class CecilILAssemblyFactory : IILAssemblyFactory
     {
         public IILAssembly Create(string assemblyPath)
         {
