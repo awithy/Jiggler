@@ -63,6 +63,8 @@
     <Compile Include="JigglerArguments.cs" />
     <Compile Include="JigglerArgumentsParser.cs" />
     <Compile Include="JigglerEngine.cs" />
+    <Compile Include="DefaultLogger.cs" />
+    <Compile Include="LoggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

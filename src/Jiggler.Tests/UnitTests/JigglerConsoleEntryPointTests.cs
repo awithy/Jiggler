@@ -10,10 +10,12 @@ namespace Jiggler.Tests.UnitTests
     public abstract class JigglerConsoleEntryPointTests
     {
         private Mock<IJigglerEngine> _jigglerEngine;
-        
+        private ILoggingTestToken _loggingTestToken;
+
         [SetUp]
         public void SetUp()
         {
+            _loggingTestToken = LoggerProvider.ForTest();
             _StubJigglerEngine();
         }
 
@@ -21,6 +23,12 @@ namespace Jiggler.Tests.UnitTests
         {
             _jigglerEngine = new Mock<IJigglerEngine>();
             Program.JigglerEngine = _jigglerEngine.Object;
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _loggingTestToken.Dispose();
         }
 
         [TestFixture]
@@ -37,7 +45,7 @@ namespace Jiggler.Tests.UnitTests
             private static void _RunMainWithArgs()
             {
                 var args = new[] {"assemblyPath", "namespace", "jiggleAssemblyPath", "jiggleMethod"};
-                _result = Program.Main(args);
+                _result = Program.MainSafe(args);
             }
 
             [Test]
@@ -68,7 +76,7 @@ namespace Jiggler.Tests.UnitTests
             [SetUp]
             public void When()
             {
-                _result = Program.Main(null);
+                _result = Program.MainSafe(null);
             }
 
             [Test]
