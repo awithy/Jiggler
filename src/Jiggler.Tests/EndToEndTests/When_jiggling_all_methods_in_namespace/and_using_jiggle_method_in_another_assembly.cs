@@ -2,14 +2,15 @@
 using System.IO;
 using Jiggler.Tests.EndToEndTests.Helpers;
 using NUnit.Framework;
+
 // ReSharper disable InconsistentNaming
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 
-namespace Jiggler.Tests.EndToEndTests
+namespace Jiggler.Tests.EndToEndTests.When_jiggling_all_methods_in_namespace
 {
     [TestFixture]
-    public class When_jiggling_all_methods_in_a_namespace_referencing_another_assembly : EndToEndTestBase
+    public class and_using_jiggle_method_in_another_assembly : EndToEndTestBase
     {
         private string _randomStringToPassThroughForTest = Guid.NewGuid().ToString("N");
         private string _outputTestFileContents;

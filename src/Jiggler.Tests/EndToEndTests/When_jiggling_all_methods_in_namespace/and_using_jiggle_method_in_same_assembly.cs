@@ -6,7 +6,7 @@ using NUnit.Framework;
 // ReSharper disable ConvertToConstant.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 
-namespace Jiggler.Tests.EndToEndTests
+namespace Jiggler.Tests.EndToEndTests.When_jiggling_all_methods_in_namespace
 {
     [TestFixture]
     public class When_jiggling_all_methods_in_a_namespace : EndToEndTestBase
