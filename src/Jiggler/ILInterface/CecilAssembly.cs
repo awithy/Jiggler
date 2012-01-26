@@ -27,8 +27,13 @@ namespace Jiggler.ILInterface
         {
             var methodDefinition =
                 _assemblyDefinition.MainModule.Types.SelectMany(x => x.Methods).Where(
-                    x => x.DeclaringType + "." + x.Name == methodName).Single();
+                    x => _IsJiggleMethod(methodName, x)).Single();
             return new CecilMethod(methodDefinition);
+        }
+
+        private static bool _IsJiggleMethod(string methodName, MethodDefinition x)
+        {
+            return x.DeclaringType + "." + x.Name == methodName;
         }
 
         public void SaveToDisk()

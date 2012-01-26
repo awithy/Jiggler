@@ -3,30 +3,31 @@ using System.Threading;
 
 namespace Jiggler.Jiggles
 {
-    public class RandomSleepJiggle : IJiggle
+    public static class RandomSleepJiggle
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random _random = new Random();
 
-        public void Jiggle()
+        public static void Jiggle()
         {
             var sleepLength = 0;
-            var typeOfRand = Random.Next(0, 1000);
+            var typeOfRand = _random.Next(0, 1000);
             if(typeOfRand <= 500)
             {
                 return;
             }
             else if(typeOfRand <= 800)
             {
-                sleepLength = Random.Next(0, 300);
+                sleepLength = _random.Next(0, 300);
             }
             else if(typeOfRand <= 990)
             {
-                sleepLength = Random.Next(300, 5000);
+                sleepLength = _random.Next(300, 5000);
             }
             else
             {
-                sleepLength = Random.Next(5000, 60000);
+                sleepLength = _random.Next(5000, 60000);
             }
+            Console.WriteLine("Jiggling: " + sleepLength);
             Thread.Sleep(sleepLength);
         }
     }

@@ -5,32 +5,42 @@ namespace SampleApp
 {
     class Program
     {
-        private static bool _sharedBool = false;
+        private static int _count;
         
-        static void Main(string[] args)
+        static void Main()
         {
-            var threadOne = new Thread(_Count);
-            threadOne.IsBackground = false;
-            threadOne.Start();
+            _StartACountingThread("First thread");
 
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
-            var threadTwo = new Thread(_Count);
-            threadTwo.IsBackground = false;
-            threadTwo.Start();
+            _StartACountingThread("Second thread");
         }
 
-        static void _Count()
+        private static void _StartACountingThread(string threadName)
+        {
+            var parameterizedThreadStart = new ParameterizedThreadStart(_SharedCount);
+            var threadOne = new Thread(parameterizedThreadStart);
+            threadOne.IsBackground = false;
+            threadOne.Start(threadName);
+        }
+
+        static void _SharedCount(object threadName)
         {
             while(true)
             {
-                var lastReadValue = _sharedBool;
-                _sharedBool = !_sharedBool;
-                Thread.Sleep(10);
-                if(lastReadValue != _sharedBool)
-                    throw new Exception("I fail!");
-                Thread.Sleep(1000);
+                _DoSharedCount(threadName);
             }
+        }
+
+        private static void _DoSharedCount(object threadName)
+        {
+            var oldCount = _count;
+            _count++;
+            Console.WriteLine(threadName + ":" + _count);
+            Thread.Sleep(100);
+            if (_count != ++oldCount)
+                throw new Exception(threadName + ": I fail!");
+            Thread.Sleep(1000);
         }
     }
 }

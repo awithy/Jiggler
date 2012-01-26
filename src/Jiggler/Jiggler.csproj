@@ -64,7 +64,6 @@
     <Compile Include="JigglerArgumentsParser.cs" />
     <Compile Include="JigglerEngine.cs" />
     <Compile Include="DefaultLogger.cs" />
-    <Compile Include="Jiggles\IJiggle.cs" />
     <Compile Include="Jiggles\RandomSleepJiggle.cs" />
     <Compile Include="LoggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
