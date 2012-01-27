@@ -6,28 +6,33 @@ namespace Jiggler.Jiggles
     public static class RandomSleepJiggle
     {
         private static readonly Random _random = new Random();
+        private static bool _switch;
 
         public static void Jiggle()
         {
+            _switch = !_switch;
+            if (_switch)
+                return;
+
             var sleepLength = 0;
-            var typeOfRand = _random.Next(0, 1000);
-            if(typeOfRand <= 500)
+            var nextRand = _random.Next(0, 1000);
+            if(nextRand <= 800)
             {
                 return;
             }
-            else if(typeOfRand <= 800)
+
+            if(nextRand <= 950)
+            {
+                sleepLength = _random.Next(0, 10);
+            }
+            else if(nextRand <= 999)
             {
                 sleepLength = _random.Next(0, 300);
             }
-            else if(typeOfRand <= 990)
-            {
-                sleepLength = _random.Next(300, 5000);
-            }
             else
             {
-                sleepLength = _random.Next(5000, 60000);
+                sleepLength = _random.Next(0, 60000);
             }
-            Console.WriteLine("Jiggling: " + sleepLength);
             Thread.Sleep(sleepLength);
         }
     }
