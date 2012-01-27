@@ -20,19 +20,19 @@ If I had an assembly AssemblyToJiggle.exe with a root namespace AssemblyToJiggle
 
 Build
 -----
-To build and execute all unit tests.
+Build and execute all unit tests.
 
     PS> .\build
     
 Test
 ----
-To run all tests (includes end to end).
+Run all tests (includes end to end).
 
 	PS> .\build -t runalltests
 
 List all build tasks
 --------------------
-Get a list of the build tasks by running
+List of the build tasks.
 
     PS> .\build -t ?
 
