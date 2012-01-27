@@ -42,4 +42,4 @@ A proof of concept is provided by applying the Jiggle.Jiggles.RandomSleepJiggle:
 	
 License
 -------
-FreeBSD (see LICENSE.txt)
+None whatsoever.  You may freely use, distribute, and fork with or without letting us know.  No warrantly is provided whatsoever.
