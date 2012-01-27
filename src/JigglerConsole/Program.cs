@@ -20,7 +20,7 @@ namespace JigglerConsole
 
         public static int MainSafe(string[] args)
         {
-            //Debugger.Break();
+            Debugger.Break();
             if(args.Length == 0)
             {
                 _Usage();

@@ -17,6 +17,8 @@ namespace Jiggler.ILInterface
         {
             var cecilMethod = method as CecilMethod;
             var cecilMethodDefinition = cecilMethod._methodDefinition;
+            if (_methodDefinition.Body == null)
+                return;
             var existingInstructions = _methodDefinition.Body.Instructions.ToArray();
             _methodDefinition.Body.Instructions.Clear();
             var importedJiggleMethod = _methodDefinition.Module.Import(cecilMethodDefinition);
