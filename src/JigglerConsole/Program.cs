@@ -21,6 +21,11 @@ namespace JigglerConsole
         public static int MainSafe(string[] args)
         {
             //Debugger.Break();
+            if(args.Length == 0)
+            {
+                _Usage();
+                return 0;
+            }
             var exitCode = 0;
             try
             {
@@ -33,6 +38,12 @@ namespace JigglerConsole
             }
             //Console.ReadKey();
             return exitCode;
+        }
+
+        private static void _Usage()
+        {
+            Console.WriteLine("Jiggler Usage:");
+            Console.WriteLine("JigglerConsole.exe <Assembly-to-jiggle> <Namespace-to-jiggle> <Jiggle-assembly> <Jiggle-method>");
         }
 
         private static void _ParseArgsAndExecuteJigglerEngine(string[] args)
