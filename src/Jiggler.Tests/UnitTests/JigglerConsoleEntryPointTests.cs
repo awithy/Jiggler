@@ -76,8 +76,9 @@ namespace Jiggler.Tests.UnitTests
             [SetUp]
             public void When()
             {
-                _result = Program.MainSafe(null);
+                _result = Program.MainSafe(new[]{ "this wont work"});
             }
+
 
             [Test]
             public void It_should_not_rethrow()

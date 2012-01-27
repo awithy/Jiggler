@@ -27,13 +27,6 @@ task RunAllTests -depends Compile -description "Runs all tests"{
   RunAllTests
 }
 
-task CompileAndPackage -depends Compile, Package -description "Build and package." {
-}
-
-task CompilePackageAndTest -depends Compile, Package -description "Build, package, and test." {
-  RunUnitTests
-}
-
 function RunMsBuild($target) {
   exec { 
     & $msbuild "$solutionFile" /target:"$target" /verbosity:minimal /nologo
@@ -50,12 +43,4 @@ function RunUnitTests {
 
 function RunAllTests {
   exec{ & $nunit $nunitTestsNUnitFile /nologo }
-}
-
-task EndToEndTests -depends Package {
-  exec{ & $nunit $nunitTestsNUnitFile /nologo "/include=EndToEnd" }
-}
-
-task IntegrationTests -depends Compile {
-  exec{ & $nunit $nunitTestsNUnitFile /nologo "/include=Integration" }
 }
